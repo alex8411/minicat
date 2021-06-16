@@ -1,5 +1,5 @@
 # minicat
-MiniCat is an open source (MIT licence) DIY Robot for Makers and Kids
+MiniCat is an open source (MIT licence) DIY Robot for Makers and Kids based on Arduino Nano :
 
 - original design (3D parts, hardware, software): https://github.com/petoicamp/opencat
   from Rongzhong Li https://www.linkedin.com/in/rongzhongli/
