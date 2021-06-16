@@ -1,7 +1,7 @@
 # minicat
 MiniCat is an open source (MIT licence) DIY Robot for Makers and Kids
 
-- original design (3D parts, hardware, software): github.com/petoicamp/opencat 
+- original design (3D parts, hardware, software): https://github.com/petoicamp/opencat
   from Rongzhong Li https://www.linkedin.com/in/rongzhongli/
 
 - first training material 
