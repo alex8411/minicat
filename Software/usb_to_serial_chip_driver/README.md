@@ -1,0 +1,4 @@
+- Arduino MCU nano board used is not the original from Arduino but the clone from AZ-Delivery "Nano V3.0" https://www.az-delivery.de/products/nano-v3-mit-ch340-arduino-kompatibel
+- on Windows10 you need to install a driver in order to communicate to the MCU via the usb to serial chip "CH340G"
+- this chip is different from the one used on original Arduino boards
+- the driver is stored here on the MiniCat GIT but you can also find it directly on the chinese CH340G chip manufacturer page : http://www.wch.cn/download/CH341SER_EXE.html
