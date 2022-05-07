@@ -1,1 +1,3 @@
-adding IRremote test Software based on IRremote library (need to ne installed in your Arduino IDE : Tools/Manage Libraries “IRremote”)
+- adding IRremote test Software based on IRremote library (need to ne installed in your Arduino IDE : Tools/Manage Libraries “IRremote”)
+- allow you to send Infrared commands with the remote control to your Arduino via the IR recweiver module
+- after uploading the sketch, check the "Tools / Serial Monitor" to see the commands received by the Arduino
