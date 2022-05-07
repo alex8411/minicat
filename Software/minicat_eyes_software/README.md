@@ -1,4 +1,4 @@
-Add Eyes for MiniCat ! (requires 2 OLED displays and 1 additional Arduino) 
+OPTIONAL / Add Eyes for MiniCat ! (requires 2 OLED displays and 1 additional Arduino) 
 
 This is the MiniCat eyes software allowing you :
 - to show emotions in MiniCat eyes !
