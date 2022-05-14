@@ -8,6 +8,7 @@
 Ecrit par Rongzong Li, Petoi 
 Modifié et commenté par Lilie Boizumault, QI Informatique 
 2020 
+Edited by Alexis Veynachter, 2021-2022
 
 
 */
@@ -102,6 +103,9 @@ int receiver = 5;
 
 IRrecv irrecv(receiver);     
 decode_results results;      
+
+//AV: below the IR remote control sent commands, need to associate each received command with an abbreviation of gaits that will be used to effectively move the robot
+
 String translateIR() 
 {                                     
   switch (results.value) { // cette fois l'action est de renvoyer l'abréviation de la 
