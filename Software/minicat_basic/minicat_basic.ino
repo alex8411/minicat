@@ -332,6 +332,9 @@ int8_t idxOfGait(const char * gait) { // retourne l'indice de la posture ou du m
   return -1;
 }
 
+
+//AV: target angles for the servomotors are taken from a certain position or movement target which is sent by the remote control or terminal :
+
 int pgmCpy(char * dutyAng, const char * gait) { // fonction qui copie dans dutyAng les angles 
   // voulus pour réaliser une certaine posture (ou mouvement) 
   dutyAng--;
@@ -343,6 +346,8 @@ int pgmCpy(char * dutyAng, const char * gait) { // fonction qui copie dans dutyA
   dutyAng++;
   return period;
 }
+
+// AV: this is where the gyroscope latest measurement is taken in account to adjust the balance of the robot : 
 
 int adjust(int i) { // calculer un coefficient de rotation, pour l'équilibre
   if (i>7)
@@ -398,7 +403,7 @@ void setup() {
   SPLF("Testing connections...");
   Serial.println(mpu.testConnection() ? F("MPU successful") : F("MPU failed"));
   Serial.println(F("Initializing DMP..."));
-  //devStatus = mpu.dmpInitialize();//RoboticsForMakers: commenting this line, minicat_basic.ino software not running stable with this line
+  //devStatus = mpu.dmpInitialize();//AV, RoboticsForMakers: commenting this line, minicat_basic.ino software not running stable with this line
   mpu.setZAccelOffset(EEPROMReadInt(MPUCALIB + 4));
   mpu.setXGyroOffset(EEPROMReadInt(MPUCALIB + 6));
   mpu.setYGyroOffset(EEPROMReadInt(MPUCALIB + 8));
@@ -696,7 +701,7 @@ void loop() {
           offset = (tPeriod == 1) ? 0 : DOF - WalkingDOF; // si c'est une posture on considère les 16 articulations 
           // si c'est un mouvement on ne prend que les 8 des jambes 
 
-       
+          //AV : here all the positions of servos for a given target robot position or movement (see modes.h) are implemented by the servos :
           transform( dutyAng, offset, 1); // on envoie les servomoteurs dans la bonne posture OU dans la première posture 
           // du mouvement voulu 
           if (!strcmp(cmd, "rest")) { // si la commande est "rest"
