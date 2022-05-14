@@ -104,7 +104,9 @@ int receiver = 5;
 IRrecv irrecv(receiver);     
 decode_results results;      
 
-//AV: below the IR remote control sent commands, need to associate each received command with an abbreviation of gaits that will be used to effectively move the robot
+//AV: below the IR remote control sent commands
+//AV: if a new position/movement is needed from the existing list (see in modes.h), you need to associate the abbreviation of position/movement you want to add in the case list below
+//AV: for example the position "pee" is currently not associated with any of the remote control key listed below
 
 String translateIR() 
 {                                     
@@ -597,11 +599,14 @@ void loop() {
 
     
     else if (token == 'd' ) { // si le "token" est "d" => on charge la posture "rest"
+      
       // puis on éteint les servomoteurs
       pgmCpy(dutyAng, "rest"); // on charge les angles voulus dans dutyAng
+      
       transform( dutyAng); // on envoie les servomoteurs dans la bonne position (en fonction de leur position précédente)
       shutServos(); // on éteint les servomoteurs
     }
+    
     
     else if (token == 's') { // si le "token" est "s" => on sauvegarde les angles de compensation pour l'étalonnage
       saveCalib(servoCalibs);
@@ -705,7 +710,8 @@ void loop() {
           offset = (tPeriod == 1) ? 0 : DOF - WalkingDOF; // si c'est une posture on considère les 16 articulations 
           // si c'est un mouvement on ne prend que les 8 des jambes 
 
-          //AV : here all the positions of servos for a given target robot position or movement (see modes.h) are implemented by the servos :
+          //AV : here all the positions of servos for a given target robot position or movement (see modes.h) are implemented by the servos,
+          //AV : If you would like to build new positions, check the existing ones in "modes.h" ("bd","crR","trL","wk","bk","vt","cr","trR","crL","wkL","bkL","tr","bkR","wkR","buttUp","dropped","sit","calib","pee","balance","lifted","rest", "test")
           transform( dutyAng, offset, 1); // on envoie les servomoteurs dans la bonne posture OU dans la première posture 
           // du mouvement voulu 
           if (!strcmp(cmd, "rest")) { // si la commande est "rest"
