@@ -398,7 +398,7 @@ void setup() {
   SPLF("Testing connections...");
   Serial.println(mpu.testConnection() ? F("MPU successful") : F("MPU failed"));
   Serial.println(F("Initializing DMP..."));
-  devStatus = mpu.dmpInitialize();
+  //devStatus = mpu.dmpInitialize();//RoboticsForMakers: commenting this line, minicat_basic.ino software not running stable with this line
   mpu.setZAccelOffset(EEPROMReadInt(MPUCALIB + 4));
   mpu.setXGyroOffset(EEPROMReadInt(MPUCALIB + 6));
   mpu.setYGyroOffset(EEPROMReadInt(MPUCALIB + 8));
