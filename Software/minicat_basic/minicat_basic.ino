@@ -702,6 +702,7 @@ void loop() {
       if (token == 'w'); // on n'utilise pas ce token pour le moment 
 
       if (token == 'p' || token == 'g') { // token correspondants à une commande de posture ou mouvement 
+        //AV: we received a token from the remote control or from the serial monitor and change the servo angles based on the position/movement given by the token:
         if (idxOfGait(cmd) >= 0) { // on vérifie que la commande est dans la liste des postures / mouvements 
           tPeriod =  pgmCpy(dutyAng, cmd); // on copie les angles voulus dans dutyAng et on récupère le nombre de posture
           t = 0;
